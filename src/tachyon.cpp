@@ -13,25 +13,25 @@ spatial_unit::from_Mm (int64_t mm)
 spatial_unit
 spatial_unit::from_AU (double au)
 {
-  return spatial_unit (static_cast<int64_t> (au * AU));
+  return spatial_unit (std::round (au * AU));
 }
 
 spatial_unit
 spatial_unit::from_ly (double ly)
 {
-  return spatial_unit (static_cast<int64_t> (ly * LY));
+  return spatial_unit (std::round (ly * LY));
 }
 
 spatial_unit
 spatial_unit::from_pc (double pc)
 {
-  return spatial_unit (static_cast<int64_t> (pc * PC));
+  return spatial_unit (std::round (pc * PC));
 }
 
 spatial_unit
 spatial_unit::from_kpc (double kpc)
 {
-  return spatial_unit (static_cast<int64_t> (kpc * KPC));
+  return spatial_unit (std::round (kpc * KPC));
 }
 
 int64_t
@@ -121,13 +121,13 @@ spatial_unit::operator- () const
 spatial_unit
 spatial_unit::operator* (double scalar) const
 {
-  return spatial_unit (static_cast<int64_t> (m_value * scalar));
+  return spatial_unit (std::round (m_value * scalar));
 }
 
 spatial_unit
 spatial_unit::operator/ (double scalar) const
 {
-  return spatial_unit (static_cast<int64_t> (m_value / scalar));
+  return spatial_unit (std::round (m_value / scalar));
 }
 
 spatial_unit &
@@ -147,14 +147,14 @@ spatial_unit::operator-= (const spatial_unit &other)
 spatial_unit &
 spatial_unit::operator*= (double scalar)
 {
-  m_value = static_cast<int64_t> (m_value * scalar);
+  m_value = std::round (m_value * scalar);
   return *this;
 }
 
 spatial_unit &
 spatial_unit::operator/= (double scalar)
 {
-  m_value = static_cast<int64_t> (m_value / scalar);
+  m_value = std::round (m_value / scalar);
   return *this;
 }
 
